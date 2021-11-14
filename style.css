@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  height: 100vh;
+}
+
+main {
+  background-color: hsl(189, 41%, 97%);
+  width: 1000px;
+  margin: 0 auto;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.people-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+}
+
+.bill {
+  margin-bottom: 5%;
+}
+
+.bill-amount {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url("images/icon-dollar.svg");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  font-size: 2vh;
+  color: hsl(183, 100%, 15%);
+  text-align: right;
+   width: 100%;
+}
+
+#custom-percent {
+  background-color: hsl(183, 100%, 15%);
+  padding-left: 40%;
+  font-size: 1vh;
+  cursor: pointer;
+}
+
+input[type="button"] {
+  list-style-type: none;
+  padding: 10px 25px;
+  border-radius: 3px;
+  background-color: hsl(183, 100%, 15%);
+  text-align: center;
+  cursor: pointer;
+}
+
+.input-icons {
+  margin-top: 5%;
+}
+
+#number-of-people {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url("images/icon-person.svg");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  font-size: 2vh;
+  color: hsl(183, 100%, 15%);
+  text-align: right;
+  width: 100%;
+}
+
+.number-of-people-label {
+  font-size: 1vh;
+  position: relative;
+}
+
+#error {
+  color: hsl(183, 100%, 15%);
+  font-size: 2vh;
+  color: red;
+  position: relative;
+  float: right;
+}
+
+input[type="button"]:active,
+input[type="button"]:focus,
+#custom-percent:active,
+#custom-percent:focus {
+  background-color: hsl(172, 67%, 45%);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.select-tip {
+  margin-bottom: 5%;
+  font-size: 2vh;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.tip-percentage {
+  color: white;
+  font-size: 2vh;
+  padding: 15px 15px;
+}
+
+.custom-tip {
+  list-style-type: none;
+}
+
+.tip-amount-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(183, 100%, 15%);
+  padding: 30px;
+  width: 400px;
+  height: auto;
+  padding: 20px;
+  margin: 2%;
+  border-radius: 10%;
+}
+
+.tips {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+   padding: 10px;
+}
+
+.tips p,
+.total p {
+  color: white;
+}
+
+.tips p span,
+.total p span {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  opacity: 0.5;
+}
+
+.reset-button {
+  font-family: "Space Mono", monospace;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  width: 80%;
+  background-color: hsl(172, 67%, 45%);
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2vh;
+}
