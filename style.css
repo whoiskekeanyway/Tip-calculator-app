@@ -11,29 +11,33 @@ html {
 }
 
 body {
+  background-color: hsl(185, 41%, 84%);
   font-family: "Space Mono", monospace;
   font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
 main {
-  background-color: hsl(189, 41%, 97%);
-  width: 1000px;
-  margin: 0 auto;
-  position: absolute;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  padding: 3%;
 }
 
 .people-container {
   display: flex;
   flex-direction: column;
-  margin: 2%;
+  flex: 50%;
+}
+
+.people-container div {
+  margin: 10px;
 }
 
 .bill {
@@ -52,14 +56,21 @@ main {
   font-size: 2vh;
   color: hsl(183, 100%, 15%);
   text-align: right;
-   width: 100%;
+  width: 100%;
+  cursor: pointer;
 }
 
-#custom-percent {
-  background-color: hsl(183, 100%, 15%);
-  padding-left: 40%;
-  font-size: 1vh;
-  cursor: pointer;
+.bill-amount:focus {
+  outline: none;
+  border-color: hsl(172, 67%, 45%);
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
 }
 
 input[type="button"] {
@@ -71,8 +82,18 @@ input[type="button"] {
   cursor: pointer;
 }
 
-.input-icons {
-  margin-top: 5%;
+#custom-percent {
+  background-color: white;
+  color: hsl(183, 100%, 15%);
+  padding-left: 40%;
+  font-size: 1vh;
+  cursor: pointer;
+}
+
+#custom-percent:active,
+#custom-percent:focus {
+  background-color: white;
+  color: black;
 }
 
 #number-of-people {
@@ -88,18 +109,27 @@ input[type="button"] {
   color: hsl(183, 100%, 15%);
   text-align: right;
   width: 100%;
+  cursor: pointer;
 }
 
-.number-of-people-label {
-  font-size: 1vh;
-  position: relative;
+#number-of-people:focus {
+  outline: none;
+  border-color: red;
+}
+
+.number-of-people-label,
+.bill-amount-label {
+  font-size: 2vh;
+  font-weight: 700;
 }
 
 #error {
   color: hsl(183, 100%, 15%);
-  font-size: 2vh;
+  font-size: 1.5vh;
   color: red;
   position: relative;
+  right: 0;
+  bottom: 0;
   float: right;
 }
 
@@ -120,23 +150,9 @@ input[type="number"] {
 }
 
 .select-tip {
-  margin-bottom: 5%;
-  font-size: 2vh;
-}
-
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
-
-form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  margin-bottom: 2%;
+  font-size: 1.5vh;
+  font-weight: 700;
 }
 
 .tip-percentage {
@@ -151,29 +167,46 @@ form {
 
 .tip-amount-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
   background-color: hsl(183, 100%, 15%);
-  padding: 30px;
-  width: 400px;
+  border-radius: 10px;
+  margin: 5%;
   height: auto;
-  padding: 20px;
-  margin: 2%;
-  border-radius: 10%;
+  flex: 50%;
+}
+
+.tip-amount-container div {
+  margin: 10%;
+}
+
+.tip-amount,
+.total-amount {
+  font-size: 4vh;
+  font-weight: 700;
 }
 
 .tips {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px;
+}
+
+.tipsp {
+  font-size: 1.5vh;
+  font-weight: 700;
+  color: hsl(183, 100%, 15%);
+  margin-right: 7rem;
 }
 
 .total {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-   padding: 10px;
+}
+
+.totalp {
+  font-size: 1.5vh;
+  font-weight: 700;
+  color: hsl(183, 100%, 15%);
 }
 
 .tips p,
@@ -203,4 +236,34 @@ form {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 2vh;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 639px) {
+  main {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .tip-amount-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    flex: 50%;
+  }
+
+  .people-container {
+    flex: 50%;
+  }
+
+  .tip-amount-container div {
+    margin: 10%;
+  }
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
 }

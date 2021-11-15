@@ -1,7 +1,9 @@
 // Bill Amount
 
 const billAmount = document.querySelector(".bill-amount");
-let billValue = 0.0;
+const tipAmount = document.getElementById("tip-amount");
+const totalBillAmount = document.getElementById("total-amount");
+let billValue = 0;
 
 billAmount.addEventListener("input", setbillValue);
 
@@ -14,21 +16,23 @@ function setbillValue() {
 const numOfPeople = document.querySelector(".number-of-people");
 let numofPeopleValue = 0;
 
-numOfPeople.addEventListener("input", setNumOfPeople);
+numOfPeople.addEventListener("input", setNumOfPeople, cantBeZero);
 
 function setNumOfPeople() {
   numofPeopleValue = parseFloat(numOfPeople.value);
 }
 
-numOfPeople.addEventListener("input", cantBeZero);
-
 function cantBeZero() {
   const numOfPeople = document.querySelector(".number-of-people").value;
   if (numOfPeople == "0") {
     document.getElementById("error").textContent = "can`t be zero";
-    document.getElementById("tip-amount").textContent = "0.00";
-    document.getElementById("total-amount").textContent = "0.00";
+    iniTialize(tipAmount);
+    document.getElementById("total-amount").textContent = "$0.00";
   }
+}
+
+function iniTialize(strHTML) {
+  strHTML.textContent = "$0.00";
 }
 
 // PercentValues
@@ -74,13 +78,10 @@ function customPercentCalc() {
 function clearResult() {
   document.getElementById("bill-amount").value = "";
   document.getElementById("number-of-people").value = "";
-  document.getElementById("tip-amount").textContent = "0.00";
-  document.getElementById("total-amount").textContent = "0.00";
   document.getElementById("error").textContent = "";
+  document.getElementById("total-amount").textContent = "$0.00";
+  iniTialize(tipAmount);
 }
-
-const tipAmount = document.getElementById("tip-amount");
-const totalBillAmount = document.getElementById("total-amount");
 
 numOfPeople.addEventListener("input", calculateAll);
 
@@ -90,18 +91,23 @@ function calculateAll() {
   let eachPersonBill = calculateTotalBill / numofPeopleValue;
   let eachPersonTip = calculatePercentage / numofPeopleValue;
 
-  tipAmount.innerHTML = eachPersonTip.toFixed(2);
-  totalBillAmount.innerHTML = eachPersonBill.toFixed(2);
-  keepActive();
+  tipAmount.innerHTML = "$" + eachPersonTip.toFixed(2);
+  totalBillAmount.innerHTML = "$" + eachPersonBill.toFixed(2);
   cantBeZero();
 }
 
-function keepActive() {
-  document
-    .querySelector(".tip-percentage")
-    .addEventListener("click", function () {
-      if (this.classList.contains("active")) {
-        this.classList.remove("active");
-      } else this.classList.add("active");
-    });
-}
+//function keepActive() {
+//  document
+//    .querySelector(".tip-percentage")
+//    .addEventListener("click", function () {
+//      if (this.classList.contains("active")) {
+//        this.classList.remove("active");
+//      } else this.classList.add("active");
+//    });
+//}
+
+iniTialize(tipAmount);
+document.getElementById("total-amount").textContent = "$0.00";
+
+totalBillAmount.style.color = "hsl(172, 67%, 45%)";
+tipAmount.style.color = "hsl(172, 67%, 45%)";
