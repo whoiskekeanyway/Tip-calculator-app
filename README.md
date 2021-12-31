@@ -14,7 +14,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 - [Author](#author)
 
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -26,14 +25,13 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
-
-
+![](screenshot.png)
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/tip-calculator-javascript-h2SqL7XuF](https://www.frontendmentor.io/solutions/tip-calculator-javascript-h2SqL7XuF)
+- Live Site URL: [https://vibrant-carson-1d0570.netlify.app/](https://vibrant-carson-1d0570.netlify.app/)
 
 ## My process
 
@@ -44,36 +42,47 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-
-
+- Javascript
 
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+- The innerHTML property sets or returns the HTML content (inner HTML) of an element.
+- The parseFloat() method parses a value as a string and returns the first number.
+- The textContent property sets or returns the text content of the specified node, and all its descendants.
+- The addEventListener() method attaches an event handler to the specified element.
+- The toFixed() method converts a number to a string.
+- The toFixed() method rounds the string to a specified number of decimals.
+- The equality operator (==) checks whether its two operands are equal, returning a Boolean result. Unlike the strict equality operator, it attempts to convert and compare operands that are of different types.
 
-To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+  background-image: url("images/icon-dollar.svg");
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+
+  Css code to display icon inside the input 
 ```
+
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function cantBeZero() {
+  const numOfPeople = document.querySelector(".number-of-people").value;
+  if (numOfPeople == "0") {
+    document.getElementById("error").textContent = "can`t be zero";
+    iniTialize(tipAmount);
+    document.getElementById("total-amount").textContent = "$0.00";
+  }
 }
+
+if statement to be executed if the user enter 0 as number of people to be split the bill, it will display an error message that can't be zero.
+
 ```
-
-
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [scriptsandtags.com](https://www.scriptsandtags.com/)
+- Frontend Mentor - [@whoiskekeanyway](https://www.frontendmentor.io/profile/whoiskekeanyway)
+- Twitter - [@scriptsandtags](https://www.twitter.com/scriptsandtags)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
