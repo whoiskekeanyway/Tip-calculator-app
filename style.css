@@ -22,18 +22,28 @@ body {
   align-items: center;
   height: 100vh;
 }
-
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  height: 100vh;
+}
 main {
   background-color: #fff;
   display: flex;
   flex-direction: row;
   padding: 3%;
+  margin-top: 3rem;
+  border-radius: 30px;
 }
 
 .people-container {
   display: flex;
   flex-direction: column;
   flex: 50%;
+  max-width: 500px;
 }
 
 .people-container div {
@@ -48,8 +58,8 @@ main {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  background-color: white;
   background-image: url("images/icon-dollar.svg");
+  background-color: white;
   background-position: 10px 10px;
   background-repeat: no-repeat;
   font-weight: bold;
@@ -75,19 +85,22 @@ form {
 
 input[type="button"] {
   list-style-type: none;
-  padding: 10px 25px;
+  padding: 10px 35px;
   border-radius: 3px;
   background-color: hsl(183, 100%, 15%);
   text-align: center;
   cursor: pointer;
+  width: 100%;
 }
 
 #custom-percent {
   background-color: white;
-  color: hsl(183, 100%, 15%);
-  padding-left: 40%;
-  font-size: 1vh;
+  color: hsl(172, 67%, 45%);
+  font-size: 2vh;
   cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  text-align: right;
 }
 
 #custom-percent:active,
@@ -120,7 +133,7 @@ input[type="button"] {
 .number-of-people-label,
 .bill-amount-label {
   font-size: 2vh;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 #error {
@@ -138,6 +151,7 @@ input[type="button"]:focus,
 #custom-percent:active,
 #custom-percent:focus {
   background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -170,8 +184,12 @@ input[type="number"] {
   background-color: hsl(183, 100%, 15%);
   border-radius: 10px;
   margin: 5%;
-  height: auto;
+  padding: 25px 5px;
   flex: 50%;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .tip-amount-container div {
